@@ -64,7 +64,7 @@ from flask import Response
 def health():
     return jsonify({"status":"ok","time":now_iso(),"service":"findalleasy-ai-engine-v1"})
 
-@app.route(" /search")
+@app.route("/search")
 def search():
     q = (request.args.get("q") or "").strip()
     region = (request.args.get("region") or "TR").upper()
