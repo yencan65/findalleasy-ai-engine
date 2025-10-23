@@ -130,10 +130,12 @@ def recommendations():
             {"title": f"{last} Screen Protector", "site": "Trendyol"}]
     return jsonify({"user": user, "items": recs, "time": now_iso()})
 
+@app.route("/ping")
+def ping():
+    return jsonify({"status": "ok"})
+    
 if __name__ == "__main__":
     port = int(os.getenv("PORT", "5000"))
     app.run(host="0.0.0.0", port=port)
 
-@app.route("/ping")
-def ping():
-    return jsonify({"status": "ok"})
+
